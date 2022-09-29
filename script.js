@@ -16,7 +16,7 @@ var userLowercase = false;
 var userUppercase = false;
 
 
-// Write password to the #password input (part of starte code)
+// Write password to the #password input (part of starter code)
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -60,7 +60,7 @@ function combineArray () {
   }
 }
 
-// create generate password function (this function was empty in the starter code and all of the code contained within it was written by me)
+// create generate password function (this function was empty in the starter code and all of the code contained contained within was written by me)
 function generatePassword () {
   // resets password back to blank every time function is run
   result = ""
