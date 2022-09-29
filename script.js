@@ -20,27 +20,27 @@ var userUppercase = false;
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
-
 }
 
 // prompts user to input a number value 8-128; will alert user if does not fit parameters
 function lengthSelection () {
-  userLength = prompt("How many characters do you want your password to be? (Must be between 8-128)");
+  while (userLength < 8 || userLength > 128) {userLength = prompt("How many characters do you want your password to be? (Must be between 8-128)");
   if (userLength < 8 || userLength > 128) {
     alert("Please choose a value between 8 and 128.");
-  } 
+    } 
+  }
 }
 
 // prompts user to make selections what ind of characters are included in password generation
 function characterSelection () {
-  userNum = confirm("Do you want to include numbers?");
-  userLowercase = confirm("Do you wnat to incllude lowercase letters?");
-  userUppercase = confirm("Do you want tto include uppercase letters?");
-  userSpecial = confirm("Do you want to include special characters?");
+  while (!userLowercase && !userNum && !userUppercase && !userSpecial) {userNum = confirm("Do you want to include numbers? Click OK to confirm.");
+  userLowercase = confirm("Do you wnat to incllude lowercase letters? Click OK to confirm.");
+  userUppercase = confirm("Do you want tto include uppercase letters? Click OK to confirm.");
+  userSpecial = confirm("Do you want to include special characters? Click OK to confirm.");
   if (!userLowercase && !userNum && !userUppercase && !userSpecial) {
-    alert("you have to select at least one of the charcter oprions");
+    alert("You have to select at least one of the character options"); 
+    }
   }
 }
 
@@ -60,20 +60,18 @@ function combineArray () {
   }
 }
 
-// ((Math.floor(Math.random))*characterPool.length)
- // randomizes the selection of characters within the array
-
-
 // create generate password function
 function generatePassword () {
+  // resets password back to blank every time function is run
+  result = ""
   lengthSelection();
   console.log(userLength);
   characterSelection();
   console.log(userNum, userLowercase, userUppercase, userSpecial);
   combineArray()
   console.log(characterPool);
-  
-  for (let i = 1; i < userLength; i++) {
+  // randomizes characterPool index selection
+  for (let i = 0; i < userLength; i++) {
     result += characterPool[Math.floor(Math.random()*characterPool.length)];
   }
   console.log(result);
@@ -82,4 +80,3 @@ function generatePassword () {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
