@@ -1,6 +1,6 @@
 
 // Assignment Code
-var generateBtn = document.querySelector("#generate");
+var generateBtn = document.querySelector("#generate"); //starter code
 var result = "";
 
 // array of numbers, specials, uppercase, lowercase
@@ -16,7 +16,7 @@ var userLowercase = false;
 var userUppercase = false;
 
 
-// Write password to the #password input
+// Write password to the #password input (part of starte code)
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -60,7 +60,7 @@ function combineArray () {
   }
 }
 
-// create generate password function
+// create generate password function (this function was empty in the starter code and all of the code contained within it was written by me)
 function generatePassword () {
   // resets password back to blank every time function is run
   result = ""
@@ -78,5 +78,5 @@ function generatePassword () {
   return result;
 }
 
-// Add event listener to generate button
+// Add event listener to generate button (starter code)
 generateBtn.addEventListener("click", writePassword);
